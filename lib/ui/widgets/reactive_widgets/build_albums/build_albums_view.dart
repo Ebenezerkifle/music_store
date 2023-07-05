@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:music_store/ui/common/app_text_style.dart';
-import 'package:music_store/ui/views/home/home_viewmodel.dart';
 import 'package:stacked/stacked.dart';
 
-import '../../widgets/custome_card_item.dart';
+import '../../dome_widgets/custome_card_item.dart';
+import 'build_albums_viewmodel.dart';
 
-class BuildAlbums extends StatelessWidget {
-  const BuildAlbums({super.key});
+class BuildAlbumsView extends StatelessWidget {
+  const BuildAlbumsView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class BuildAlbums extends StatelessWidget {
           ),
         ),
       ]),
-      viewModelBuilder: () => HomeViewModel(),
+      viewModelBuilder: () => BuildAlbumsViewModel(),
     );
   }
 }

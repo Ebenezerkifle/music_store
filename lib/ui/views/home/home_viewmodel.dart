@@ -19,6 +19,7 @@ class HomeViewModel extends BaseViewModel {
   void getMusicList() async {
     print('here we are');
     _music_list = await querySongsService.getListOfSongs();
-    // notifyListeners();
+    print(_music_list.length);
+    notifyListeners();
   }
 }

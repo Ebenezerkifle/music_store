@@ -1,18 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:music_store/app/locator.dart';
-import 'package:music_store/services/query_songs_service.dart';
 
 import 'app/router.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   setupLocator();
-  _storagePermission();
   runApp(MyApp());
-}
-
-_storagePermission() {
-  final queryService = locator<QuerySongs>();
-  queryService.requestStoragePermission();
 }
 
 class MyApp extends StatelessWidget {

@@ -6,7 +6,9 @@ import 'package:on_audio_query/on_audio_query.dart';
 @lazySingleton
 class QuerySongs {
   late final OnAudioQuery audioQuery;
-  late List<Music> musicList;
+  List<Music> _musicList = [];
+
+  get musicList => _musicList;
 
   QuerySongs() {
     audioQuery = OnAudioQuery();
@@ -27,6 +29,7 @@ class QuerySongs {
   }
 
   Future<List<Music>> getListOfSongs() async {
+    print('getting all songs');
     List<SongModel> songList;
     List<Music> musicList = [];
     songList = await audioQuery.querySongs(
@@ -49,13 +52,14 @@ class QuerySongs {
         ),
       );
     }
-    this.musicList = musicList;
+    print('length:' + musicList.length.toString());
+    _musicList = musicList;
     return musicList;
   }
 
   Map<String, List<Music>> getAlbumList() {
     Map<String, List<Music>> albums = {};
-    for (var song in musicList) {
+    for (var song in _musicList) {
       List<Music> songList = [];
       String albumName = song.album;
       if (albums.containsKey(albumName)) {
@@ -71,7 +75,7 @@ class QuerySongs {
 
   Map<int, Music> getIdSongMap() {
     Map<int, Music> songMap = {};
-    for (Music song in musicList) {
+    for (Music song in _musicList) {
       songMap[song.id] = song;
     }
     return songMap;
