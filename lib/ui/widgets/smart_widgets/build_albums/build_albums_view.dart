@@ -27,9 +27,10 @@ class BuildAlbumsView extends StatelessWidget {
                   .map((album) => Padding(
                         padding: const EdgeInsets.fromLTRB(0, 10, 10.0, 5),
                         child: CustomeCardItem(
-                            title: album.first.album ?? '',
-                            subtitle: [album.first.artist ?? ''],
-                            image: album.first.extras!['path']),
+                          title: album.first.album ?? '',
+                          subtitle: [album.first.artist ?? ''],
+                          image: album.first.extras!['path'],
+                        ),
                       ))
                   .toList()),
         )

@@ -29,7 +29,7 @@ class BuildTracksView extends StatelessWidget {
                           title: song.title,
                           subtitles: [song.album ?? '', song.artist ?? ''],
                           image: song.extras!['path'],
-                          songArt: song.artUri))
+                          duration: song.duration))
                       .toList()),
             ),
           ]);

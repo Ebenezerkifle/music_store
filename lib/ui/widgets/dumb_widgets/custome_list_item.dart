@@ -11,13 +11,14 @@ class CustomeListItem extends StatelessWidget {
     required this.title,
     required this.subtitles,
     required this.image,
-    this.songArt,
+    this.duration,
   });
   final String title;
   final List<String> subtitles;
   // ignore: prefer_typing_uninitialized_variables
+  var duration;
   var image;
-  final Uri? songArt;
+  String twoDigits(int n) => n.toString().padLeft(2, "0");
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +57,9 @@ class CustomeListItem extends StatelessWidget {
             ),
             Row(
               children: [
-                const Text('04:10', style: AppTextStyle.h4Normal),
+                Text(
+                    '${twoDigits(duration.inMinutes)}:${twoDigits(duration.inSeconds.remainder(60))}',
+                    style: AppTextStyle.h4Normal),
                 const SizedBox(width: 5),
                 GestureDetector(
                     onTap: () {},

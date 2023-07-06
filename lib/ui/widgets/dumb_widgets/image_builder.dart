@@ -1,9 +1,8 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 
 import '../../common/app_colors.dart';
 
+// ignore: must_be_immutable
 class ImageBuilder extends StatelessWidget {
   ImageBuilder(
       {super.key,
@@ -22,7 +21,7 @@ class ImageBuilder extends StatelessWidget {
       width: width,
       child: image != null
           ? Image.memory(image, fit: BoxFit.cover)
-          : Container(color: AppColors.primary),
+          : Container(color: AppColors.primary), //default album art.
     );
   }
 }

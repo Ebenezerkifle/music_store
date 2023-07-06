@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:music_store/ui/views/home/home_viewmodel.dart';
 import 'package:stacked/stacked.dart';
 import 'package:music_store/ui/common/app_text_style.dart';
-
-import '../../common/app_colors.dart';
 import '../../widgets/smart_widgets/build_albums/build_albums_view.dart';
 import '../../widgets/smart_widgets/build_tracks/build_tracks_view.dart';
 
@@ -43,13 +41,6 @@ class HomeView extends StatelessWidget {
                     ],
                   ),
                 )),
-            floatingActionButton: FloatingActionButton(
-              onPressed: () {}, //todo play button action
-              backgroundColor: AppColors.primary,
-              child: const Icon(
-                Icons.play_arrow,
-              ),
-            ),
           );
         });
   }

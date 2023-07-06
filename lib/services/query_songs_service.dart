@@ -43,36 +43,21 @@ class QuerySongs with ListenableServiceMixin {
       ignoreCase: true,
     );
     for (SongModel song in songList) {
-      // print('============================');
-      // print(audioQuery.queryArtwork(song.id, ArtworkType.AUDIO));
       musicList.add(
         MediaItem(
           id: song.id.toString(),
           title: song.title,
           album: song.album,
-          duration: Duration(seconds: song.duration ?? 0),
+          duration: Duration(milliseconds: song.duration ?? 0),
           artist: song.artist,
           artUri: Uri.parse(song.uri ?? ''),
           extras: {
-            // extra fields couldbe added!
+            // extra fields could be added!
             'path': await audioQuery.queryArtwork(song.id, ArtworkType.AUDIO),
             'favorite': false,
           },
         ),
       );
-
-      // musicList.add(
-      //   Music(
-      //     album: song.album ?? '',
-      //     duration: song.duration ?? 0,
-      //     title: song.title,
-      //     uri: song.uri ?? '',
-      //     id: song.id,
-      //     artist: song.artist ?? '',
-      //     displayNameWOExt: song.displayNameWOExt,
-      //     isFavorite: false,
-      //   ),
-      // );
     }
     _musicList = musicList;
     _songsFetched.complete();
