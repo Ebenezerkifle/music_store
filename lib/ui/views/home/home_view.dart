@@ -4,8 +4,9 @@ import 'package:music_store/ui/views/home/home_viewmodel.dart';
 import 'package:stacked/stacked.dart';
 import 'package:music_store/ui/common/app_text_style.dart';
 
-import '../../widgets/reactive_widgets/build_albums/build_albums_view.dart';
-import '../../widgets/reactive_widgets/build_tracks/build_tracks_view.dart';
+import '../../common/app_colors.dart';
+import '../../widgets/smart_widgets/build_albums/build_albums_view.dart';
+import '../../widgets/smart_widgets/build_tracks/build_tracks_view.dart';
 
 @RoutePage()
 class HomeView extends StatelessWidget {
@@ -16,7 +17,6 @@ class HomeView extends StatelessWidget {
     return ViewModelBuilder<HomeViewModel>.nonReactive(
         viewModelBuilder: () => HomeViewModel(),
         builder: (context, model, child) {
-          model.getMusicList();
           return Scaffold(
             body: SafeArea(
                 top: true,
@@ -44,8 +44,11 @@ class HomeView extends StatelessWidget {
                   ),
                 )),
             floatingActionButton: FloatingActionButton(
-              onPressed: model.updateCounter,
-              child: const Icon(Icons.add),
+              onPressed: () {}, //todo play button action
+              backgroundColor: AppColors.primary,
+              child: const Icon(
+                Icons.play_arrow,
+              ),
             ),
           );
         });
