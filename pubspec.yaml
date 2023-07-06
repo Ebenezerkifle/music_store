@@ -17,6 +17,10 @@ dependencies:
   get_it: ^7.6.0
   injectable: ^1.5.0
   cupertino_icons: ^1.0.2
+  on_audio_query: ^2.9.0
+  observable_ish:
+  audio_service: ^0.18.10
+  font_awesome_flutter: ^10.4.0
 
 dev_dependencies:
   flutter_test:
