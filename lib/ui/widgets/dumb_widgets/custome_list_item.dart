@@ -3,6 +3,7 @@ import 'package:music_store/ui/common/app_text_style.dart';
 
 import '../../common/app_colors.dart';
 import 'image_builder.dart';
+import 'play_button_widget.dart';
 
 // ignore: must_be_immutable
 class CustomeListItem extends StatelessWidget {
@@ -12,11 +13,14 @@ class CustomeListItem extends StatelessWidget {
     required this.subtitles,
     required this.image,
     this.duration,
+    required this.onPlay,
   });
+  final VoidCallback onPlay;
   final String title;
   final List<String> subtitles;
   // ignore: prefer_typing_uninitialized_variables
   var duration;
+  // ignore: prefer_typing_uninitialized_variables
   var image;
   String twoDigits(int n) => n.toString().padLeft(2, "0");
 
@@ -30,10 +34,16 @@ class CustomeListItem extends StatelessWidget {
           children: [
             Row(
               children: [
-                ImageBuilder(
-                  height: MediaQuery.of(context).size.height * .1,
-                  width: MediaQuery.of(context).size.height * .1,
-                  image: image,
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    ImageBuilder(
+                      height: MediaQuery.of(context).size.height * .1,
+                      width: MediaQuery.of(context).size.height * .1,
+                      image: image, 
+                    ),
+                    playButton(onTap: onPlay),
+                  ],
                 ),
                 const SizedBox(width: 10),
                 Column(

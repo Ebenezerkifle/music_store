@@ -21,6 +21,7 @@ dependencies:
   observable_ish:
   audio_service: ^0.18.10
   font_awesome_flutter: ^10.4.0
+  just_audio: ^0.9.34
 
 dev_dependencies:
   flutter_test:
@@ -51,6 +52,8 @@ flutter:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

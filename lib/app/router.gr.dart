@@ -10,10 +10,10 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i6;
 import 'package:flutter/material.dart' as _i7;
-import 'package:music_store/ui/views/favorite/favorite_view.dart' as _i3;
-import 'package:music_store/ui/views/home/home_view.dart' as _i1;
-import 'package:music_store/ui/views/library/library_view.dart' as _i4;
-import 'package:music_store/ui/views/main/main_view.dart' as _i2;
+import 'package:music_store/ui/views/favorite/favorite_view.dart' as _i1;
+import 'package:music_store/ui/views/home/home_view.dart' as _i2;
+import 'package:music_store/ui/views/library/library_view.dart' as _i3;
+import 'package:music_store/ui/views/main/main_view.dart' as _i4;
 import 'package:music_store/ui/views/setting/setting_view.dart' as _i5;
 
 abstract class $AppRouter extends _i6.RootStackRouter {
@@ -21,10 +21,22 @@ abstract class $AppRouter extends _i6.RootStackRouter {
 
   @override
   final Map<String, _i6.PageFactory> pagesMap = {
+    FavoriteView.name: (routeData) {
+      return _i6.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i1.FavoriteView(),
+      );
+    },
     HomeView.name: (routeData) {
       return _i6.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i1.HomeView(),
+        child: const _i2.HomeView(),
+      );
+    },
+    LibraryView.name: (routeData) {
+      return _i6.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i3.LibraryView(),
       );
     },
     MainView.name: (routeData) {
@@ -32,22 +44,10 @@ abstract class $AppRouter extends _i6.RootStackRouter {
           routeData.argsAs<MainViewArgs>(orElse: () => const MainViewArgs());
       return _i6.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i2.MainView(
+        child: _i4.MainView(
           initialIndex: args.initialIndex,
           key: args.key,
         ),
-      );
-    },
-    FavoriteView.name: (routeData) {
-      return _i6.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i3.FavoriteView(),
-      );
-    },
-    LibraryView.name: (routeData) {
-      return _i6.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i4.LibraryView(),
       );
     },
     SettingView.name: (routeData) {
@@ -60,7 +60,21 @@ abstract class $AppRouter extends _i6.RootStackRouter {
 }
 
 /// generated route for
-/// [_i1.HomeView]
+/// [_i1.FavoriteView]
+class FavoriteView extends _i6.PageRouteInfo<void> {
+  const FavoriteView({List<_i6.PageRouteInfo>? children})
+      : super(
+          FavoriteView.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'FavoriteView';
+
+  static const _i6.PageInfo<void> page = _i6.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i2.HomeView]
 class HomeView extends _i6.PageRouteInfo<void> {
   const HomeView({List<_i6.PageRouteInfo>? children})
       : super(
@@ -74,7 +88,21 @@ class HomeView extends _i6.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i2.MainView]
+/// [_i3.LibraryView]
+class LibraryView extends _i6.PageRouteInfo<void> {
+  const LibraryView({List<_i6.PageRouteInfo>? children})
+      : super(
+          LibraryView.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'LibraryView';
+
+  static const _i6.PageInfo<void> page = _i6.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i4.MainView]
 class MainView extends _i6.PageRouteInfo<MainViewArgs> {
   MainView({
     int? initialIndex,
@@ -109,34 +137,6 @@ class MainViewArgs {
   String toString() {
     return 'MainViewArgs{initialIndex: $initialIndex, key: $key}';
   }
-}
-
-/// generated route for
-/// [_i3.FavoriteView]
-class FavoriteView extends _i6.PageRouteInfo<void> {
-  const FavoriteView({List<_i6.PageRouteInfo>? children})
-      : super(
-          FavoriteView.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'FavoriteView';
-
-  static const _i6.PageInfo<void> page = _i6.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i4.LibraryView]
-class LibraryView extends _i6.PageRouteInfo<void> {
-  const LibraryView({List<_i6.PageRouteInfo>? children})
-      : super(
-          LibraryView.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'LibraryView';
-
-  static const _i6.PageInfo<void> page = _i6.PageInfo<void>(name);
 }
 
 /// generated route for

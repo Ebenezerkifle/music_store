@@ -13,26 +13,32 @@ class BuildTracksView extends StatelessWidget {
     return ViewModelBuilder.reactive(
         viewModelBuilder: () => BuildTracksViewModel(),
         builder: (context, model, child) {
-          return Column(children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Text("Tracks", style: AppTextStyle.h2Normal),
-                Text("See all", style: AppTextStyle.h3Normal),
-              ],
-            ),
-            SingleChildScrollView(
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: model.allTracks
-                      .map((song) => CustomeListItem(
-                          title: song.title,
-                          subtitles: [song.album ?? '', song.artist ?? ''],
-                          image: song.extras!['path'],
-                          duration: song.duration))
-                      .toList()),
-            ),
-          ]);
+          return Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text("Tracks", style: AppTextStyle.h2Normal),
+                  Text("See all", style: AppTextStyle.h3Normal),
+                ],
+              ),
+              SingleChildScrollView(
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: model.allTracks
+                        .map(
+                          (song) => CustomeListItem(
+                            title: song.title,
+                            subtitles: [song.album ?? '', song.artist ?? ''],
+                            image: song.extras!['path'],
+                            duration: song.duration,
+                            onPlay: () => model.onPlay(song),
+                          ),
+                        )
+                        .toList()),
+              ),
+            ],
+          );
         });
   }
 }

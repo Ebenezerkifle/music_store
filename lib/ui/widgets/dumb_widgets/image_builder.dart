@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../common/app_colors.dart';
-
 // ignore: must_be_immutable
 class ImageBuilder extends StatelessWidget {
   ImageBuilder(
@@ -16,12 +14,22 @@ class ImageBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: height,
       width: width,
-      child: image != null
-          ? Image.memory(image, fit: BoxFit.cover)
-          : Container(color: AppColors.primary), //default album art.
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(Radius.circular(20)),
+        image: image != null
+            ? DecorationImage(
+                image: MemoryImage(image),
+                fit: BoxFit.cover,
+              )
+            : const DecorationImage(
+                image: AssetImage(
+                  'assets/images/defaultsongpic.jpg',
+                ),
+              ),
+      ),
     );
   }
 }

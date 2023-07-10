@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:music_store/ui/common/app_text_style.dart';
+import 'package:music_store/ui/widgets/dumb_widgets/play_button_widget.dart';
 
 import '../../common/app_colors.dart';
 import 'image_builder.dart';
@@ -26,7 +27,13 @@ class CustomeCardItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          ImageBuilder(height: 170, width: 170, image: image),
+          Stack(
+            alignment: Alignment.bottomRight,
+            children: [
+              ImageBuilder(height: 170, width: 170, image: image),
+              playButton(onTap: () {})
+            ],
+          ),
           const SizedBox(height: 10),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,

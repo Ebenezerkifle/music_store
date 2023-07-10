@@ -55,6 +55,7 @@ class QuerySongs with ListenableServiceMixin {
             // extra fields could be added!
             'path': await audioQuery.queryArtwork(song.id, ArtworkType.AUDIO),
             'favorite': false,
+            'uri': song.uri,
           },
         ),
       );
