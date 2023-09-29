@@ -21,7 +21,7 @@ class CustomeCardItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * .3,
+      height: MediaQuery.of(context).size.height * .31,
       width: MediaQuery.of(context).size.width * .4,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,7 +31,7 @@ class CustomeCardItem extends StatelessWidget {
             alignment: Alignment.bottomRight,
             children: [
               ImageBuilder(height: 170, width: 170, image: image),
-              playButton(onTap: () {})
+              playButton(onTap: () {}, playing: false)
             ],
           ),
           const SizedBox(height: 10),

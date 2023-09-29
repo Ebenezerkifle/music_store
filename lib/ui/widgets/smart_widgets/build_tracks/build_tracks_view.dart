@@ -15,9 +15,9 @@ class BuildTracksView extends StatelessWidget {
         builder: (context, model, child) {
           return Column(
             children: [
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children: [
                   Text("Tracks", style: AppTextStyle.h2Normal),
                   Text("See all", style: AppTextStyle.h3Normal),
                 ],
@@ -33,6 +33,7 @@ class BuildTracksView extends StatelessWidget {
                             image: song.extras!['path'],
                             duration: song.duration,
                             onPlay: () => model.onPlay(song),
+                            playing: true,
                           ),
                         )
                         .toList()),

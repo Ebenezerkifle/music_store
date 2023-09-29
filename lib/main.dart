@@ -21,7 +21,8 @@ Future<bool> _storagePermission() async {
 _querySongs() async {
   await queryService.getListOfSongs();
   queryService
-      .ensureSongsFetched(); // for the next line to be executed all songs should be fetched first!
+      .ensureSongsFetched(); 
+      // for the next line to be executed all songs should be fetched first!
   queryService.getAlbumList();
 }
 

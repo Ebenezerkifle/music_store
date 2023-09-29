@@ -17,7 +17,6 @@ class _MainViewState extends State<MainView> {
   int _randomSha = 0;
 
   final routes = [
-    //todo add routes here
     const HomeView(), const LibraryView(), const FavoriteView(),
     const SettingView(),
   ];

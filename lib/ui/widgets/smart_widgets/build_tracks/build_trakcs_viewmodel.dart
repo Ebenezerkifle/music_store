@@ -10,7 +10,6 @@ class BuildTracksViewModel extends ReactiveViewModel {
   List<MediaItem> get allTracks => queryService.musicList;
 
   void onPlay(MediaItem song) {
-    print('onplay button clicked');
     audioService.addQueueItem(song);
     audioService.state()
         ? Future.delayed(const Duration(seconds: 1), () => audioService.pause())

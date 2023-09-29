@@ -15,21 +15,21 @@ class HomeView extends StatelessWidget {
     return ViewModelBuilder<HomeViewModel>.nonReactive(
         viewModelBuilder: () => HomeViewModel(),
         builder: (context, model, child) {
-          return Scaffold(
+          return const Scaffold(
             body: SafeArea(
                 top: true,
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(10.0, 10, 10.0, 10.0),
+                  padding: EdgeInsets.fromLTRB(10.0, 10, 10.0, 10.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text("Music Store", style: AppTextStyle.big),
-                      const SizedBox(height: 15.0),
+                      Text("Music Store", style: AppTextStyle.big),
+                      SizedBox(height: 15.0),
                       Expanded(
                         child: SingleChildScrollView(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
+                            children: [
                               SizedBox(height: 15.0),
                               BuildAlbumsView(),
                               SizedBox(height: 15.0),

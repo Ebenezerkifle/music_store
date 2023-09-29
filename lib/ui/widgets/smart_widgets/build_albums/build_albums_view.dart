@@ -11,30 +11,34 @@ class BuildAlbumsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder.reactive(
-      builder: (context, model, child) => Column(children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
-            Text("Albums", style: AppTextStyle.h2Normal),
-            Text("See all", style: AppTextStyle.h3Normal),
-          ],
-        ),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: model.albums.values
-                  .map((album) => Padding(
+      builder: (context, model, child) {
+        return Column(children: [
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("Albums", style: AppTextStyle.h2Normal),
+              Text("See all", style: AppTextStyle.h3Normal),
+            ],
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: model.albums.values
+                    .map(
+                      (album) => Padding(
                         padding: const EdgeInsets.fromLTRB(0, 10, 10.0, 5),
                         child: CustomeCardItem(
                           title: album.first.album ?? '',
                           subtitle: [album.first.artist ?? ''],
                           image: album.first.extras!['path'],
                         ),
-                      ))
-                  .toList()),
-        )
-      ]),
+                      ),
+                    )
+                    .toList()),
+          )
+        ]);
+      },
       viewModelBuilder: () => BuildAlbumsViewModel(),
     );
   }

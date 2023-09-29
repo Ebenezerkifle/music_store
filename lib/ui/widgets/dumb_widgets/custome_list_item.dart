@@ -14,8 +14,10 @@ class CustomeListItem extends StatelessWidget {
     required this.image,
     this.duration,
     required this.onPlay,
+    this.playing = false,
   });
   final VoidCallback onPlay;
+  final bool playing;
   final String title;
   final List<String> subtitles;
   // ignore: prefer_typing_uninitialized_variables
@@ -40,9 +42,9 @@ class CustomeListItem extends StatelessWidget {
                     ImageBuilder(
                       height: MediaQuery.of(context).size.height * .1,
                       width: MediaQuery.of(context).size.height * .1,
-                      image: image, 
+                      image: image,
                     ),
-                    playButton(onTap: onPlay),
+                    playButton(onTap: onPlay, playing: playing),
                   ],
                 ),
                 const SizedBox(width: 10),

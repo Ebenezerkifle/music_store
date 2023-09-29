@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget playButton({required VoidCallback onTap}) {
+Widget playButton({required VoidCallback onTap, required bool playing}) {
   return InkWell(
     onTap: onTap,
     child: Container(
@@ -9,10 +9,10 @@ Widget playButton({required VoidCallback onTap}) {
         color: Colors.black.withOpacity(.7),
         shape: BoxShape.circle,
       ),
-      child: const Padding(
-        padding: EdgeInsets.all(8.0),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
         child: Icon(
-          Icons.play_arrow_rounded,
+          playing ? Icons.pause_rounded : Icons.play_arrow_rounded,
           color: Colors.white,
           size: 30,
         ),
